@@ -1,10 +1,3 @@
-# IT Development Lead Assessment — Candidate Questionnaire
-
-**Candidate:** Senior Full-Stack & Engineering Lead  
-**Application:** Wallet Operations & Financial Ledger  
-**Date:** October 2026  
-
----
 
 ## Part A — Technical Investigation
 

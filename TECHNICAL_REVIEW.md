@@ -1,9 +1,5 @@
 # Technical Review & Engineering Decisions
 
-**Role:** IT Development Lead  
-**Application:** Wallet Operations & Financial Ledger  
-**Date:** October 2026  
-
 ---
 
 ## 1. Top Three Production Risks
