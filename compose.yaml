@@ -15,6 +15,10 @@ services:
     build: ./backend
     environment:
       DATABASE_URL: postgresql+psycopg://assessment:assessment@db:5432/assessment
+    volumes:
+      - ./backend/app:/app/app
+      - ./backend/tests:/app/tests
+    command: ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
     ports:
       - "127.0.0.1:8000:8000"
     depends_on:
@@ -24,6 +28,9 @@ services:
     build: ./frontend
     environment:
       VITE_API_URL: http://localhost:8000
+    volumes:
+      - ./frontend/src:/app/src
+      - ./frontend/index.html:/app/index.html
     ports:
       - "127.0.0.1:5173:5173"
     depends_on:
