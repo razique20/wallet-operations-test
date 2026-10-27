@@ -55,9 +55,37 @@ Keep the documented startup and build commands working. Support bounded, stable 
 - List unfinished work honestly.
 - Be ready to explain a fix and make a small change live.
 
+---
+
+## Candidate Deliverables & Execution Guide
+
+### 1. How to Run the Application
+```bash
+docker compose up --build
+```
+- **Frontend Dashboard:** http://localhost:5173
+- **FastAPI Interactive Docs:** http://localhost:8000/docs
+- **Demo Accounts:** User 1 ($100.00 initial), User 2 ($250.00 initial)
+
+### 2. How to Run Automated Tests
+```bash
+docker compose exec backend python -m pytest -v
+```
+*(Runs all 17 automated tests covering concurrency race conditions, crypto deposit validation, replay attacks, IDOR security, and pagination in ~0.35s).*
+
+### 3. Key Deliverables in Repository
+1. **[`CANDIDATE_QUESTIONNAIRE.md`](./CANDIDATE_QUESTIONNAIRE.md):** Complete answers for Part A through Part G (Questions Q1 to Q22).
+2. **[`TECHNICAL_REVIEW.md`](./TECHNICAL_REVIEW.md):** Top three risks, architectural improvement (Outbox pattern & double-entry ledger), junior developer code-review feedback, production checklist, and rejected alternative.
+3. **[`WHAT_WE_CHANGED.txt`](./WHAT_WE_CHANGED.txt):** Concise, human-readable summary of all changes and key code snippets.
+4. **[`ASSESSMENT_REPORT.txt`](./ASSESSMENT_REPORT.txt):** Full engineering log and verification report.
+5. **[`backend/tests/test_operations.py`](./backend/tests/test_operations.py):** Comprehensive unit and integration test suite.
+
+---
+
 ## Notes
 
 - `X-User-Id` is a *deliberately untrusted demo header*, not real authentication. Identify the risk; implement a sensible local authentication boundary or clearly document how to enforce it in production.
 - Local database credentials are test-only.
 - Avoid real money, real keys, real blockchain connections, or paid LLM calls.
 - Candidate implementations are assessed for correctness, reasoning, and tests, not feature count.
+
